@@ -1,17 +1,28 @@
 <template>
   <h1>{{title}}</h1>
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <Modal :header="header" :text ="text" theme="sale" @close="toggleModal">
-        <template v-slot:links>
+        <template  v-slot:links>
           <a href="#">Sign up Now</a>
           <a href="#">More Info</a>
         </template>
        <h1>From Main</h1>
        <p>Conten From Main Main</p>
     </Modal>
-  </div>
+  </teleport>
+   <teleport to=".modals" v-if="showModalTwo">
+    <Modal :header="header" :text ="text" theme="sale" @close="toggleModalTest">
+        <template  v-slot:links>
+          <a href="#">Two</a>
+          <a href="#">More Info</a>
+        </template>
+       <h1>Two</h1>
+       <p>Conten From Main Main</p>
+    </Modal>
+   </teleport>
   <input type="text" ref="name">
   <button @click="toggleModal">Toggle Modal</button>
+   <button @click="toggleModalTest">Toggle Modal Challange</button>
   <button @click.shift="handleClick">Click Me</button>
 </template>
 
@@ -27,10 +38,15 @@ export default {
       title:"This My First Vue",
       header:"Sign up for give away",
       text:"Testing Passing data by props",
-      showModal:false
+      showModal:false,
+       showModalTwo:false,
+      dataSource:1
     }
   },
   methods:{
+    toggleModalTest(){
+      this.showModalTwo=!this.showModalTwo;
+    },
     toggleModal(){
      this.showModal=!this.showModal;
     },
