@@ -1,88 +1,36 @@
 <template>
+  <div class="navigation">
+    <router-link class="nav-item" to="/">Home</router-link>
+    <router-link class="nav-item" :to="{name:'About'}">About</router-link>
+    <router-link class="nav-item" :to="{name:'Jobs'}">Jobs</router-link>
+  </div>
+  <button @click="redirect"> Redirect </button>
+   <button @click="back">Go Back</button>
+    <button @click="forward">Go Forward</button>
+    <hr>
+  <router-view/>
  
-  <teleport to=".modals" v-if="showModal">
-    <Modal :header="header" :text ="text" theme="sale" @close="toggleModal">
-        <template  v-slot:links>
-          <a href="#">Sign up Now</a>
-          <a href="#">More Info</a>
-        </template>
-       <h1>From Main</h1>
-       <p>Conten From Main Main</p>
-    </Modal>
-  </teleport>
-  <teleport to=".modals" v-if="showModalTwo">
-  <Modal :header="header" :text ="text" theme="sale" @close="toggleModalTest">
-      <template  v-slot:links>
-        <a href="#">Two</a>
-        <a href="#">More Info Two Menu</a>
-      </template>
-      <h1>Two</h1>
-      <p>Conten From Main Main</p>
-  </Modal>
-  </teleport>
-  <h1>{{title}}</h1><br>
-  <input type="text" ref="name"/><br>
-  <button @click="toggleModal">Toggle Modal</button>
-  <button @click="toggleModalTest">Toggle Modal Challange</button>
-  <button @click.shift="handleClick">Click Me</button>
-  <hr>
-  <h1>{{title2}}</h1><br>
-  <button @click="start" :disabled="isPlaying">Play</button>
-  <Block v-if="isPlaying" :delay="delay" @end="endGame"/>
-  <Result v-if="showResult" :score="score"/>
-  <hr>
-  <h1>LEARN 3- Form & Input</h1>
-  <SignupForm/>
 </template>
 
 <script>
-import Modal from './components/Test/Modal.vue'
-import Block from './components/Test/Block.vue'
-import Result from './components/Test/Result.vue'
-import SignupForm from './components/Test/SignupForm.vue'
 export default {
-  name: 'App',
+  name: 'App', 
   components: {
-    Modal,Block,Result,SignupForm
   },
   data(){
     return {
-      title:"LEARN 1-Modal(Props,$imet,$refs,telport,slot,etc)",
-      title2:"LEARN 2-Reaction Timer(Delay,Interval,Timeout,event with data)",
-      header:"Sign up for give away",
-      text:"Testing Passing data by props",
-      showModal:false,
-      showModalTwo:false,
-      dataSource:1,
-      isPlaying:false,
-      delay:null,
-      score:null,
-      reactionTimer:0,
-      showResult:false
+     
     }
   },
   methods:{
-    endGame(reactionTimer){
-      console.log("end time: "+reactionTimer)
-      this.score=reactionTimer;
-      this.isPlaying=false;
-      this.showResult=true;
+    redirect(){
+      this.$router.push({name:'Home'})
     },
-    start(){
-      this.delay=2000+Math.random()*5000 ;
-      this.isPlaying=true;
-      this.showResult=false;
+    back(){
+      this.$router.go(-1)
     },
-    toggleModalTest(){
-     
-      this.showModalTwo=!this.showModalTwo;
-            
-    },
-    toggleModal(){
-     this.showModal=!this.showModal;
-    },
-    handleClick(){
-      alert('')
+    forward(){
+       this.$router.go(+1)
     }
   }
 }
@@ -95,7 +43,28 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 160px;
+}
+a{
+  color: #dddddd;
+  text-decoration: none;
+  display: inline-block;
+  background: orange;
+  margin: 5px;
+  padding: 10px 20px 10px 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+a:hover{
+  background-color: yellow;
+  color:black;
+}
+.router-link-exact-active{
+  background-color: #ddd;
+  color: navy;
+}
+.navigation{
+  background-color: navy;
+  padding: 10px;
 }
 h1{
   border-bottom: 1px solid #dddddd;
