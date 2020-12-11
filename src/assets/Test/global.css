@@ -1,20 +1,18 @@
 body{
     margin: 0;
-
+    text-align: center;
 }
 .modal p{
     font-style: italic ;
 }
-.modal .actions{
-    text-align: center;
-    margin:30px 0 10px 0;
-   
-}
-.modal .actions a{
-    padding: 8px;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    text-decoration: none;
+button{
+    background: #0faf87;
+    color: white;
+    border: white;
+    padding: 8px 16px;
+    border-radius:4px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
     margin: 10px;
-    color:orchid;
 }
