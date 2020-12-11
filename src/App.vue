@@ -30,16 +30,20 @@
   <button @click="start" :disabled="isPlaying">Play</button>
   <Block v-if="isPlaying" :delay="delay" @end="endGame"/>
   <Result v-if="showResult" :score="score"/>
+  <hr>
+  <h1>LEARN 3- Form & Input</h1>
+  <SignupForm/>
 </template>
 
 <script>
 import Modal from './components/Test/Modal.vue'
 import Block from './components/Test/Block.vue'
 import Result from './components/Test/Result.vue'
+import SignupForm from './components/Test/SignupForm.vue'
 export default {
   name: 'App',
   components: {
-    Modal,Block,Result
+    Modal,Block,Result,SignupForm
   },
   data(){
     return {
