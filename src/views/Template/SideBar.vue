@@ -12,8 +12,7 @@
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
  
           <div class="info">
-            <router-link :to="{name: 'Home'}" class="d-block">Welldy Rosman
-                
+            <router-link to="/" class="d-block">Welldy Rosman  
             </router-link>
           </div>
         </div>
@@ -26,14 +25,15 @@
             <li class="nav-item">
               <router-link :to="{name: 'Home'}" class="nav-link">
                 <i class="fas fa-Home nav-icon"></i>
-                <p>Home</p>
+                <p>Registration</p>
               </router-link>
             </li>
+            
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-list"></i>
                 <p>
-                  Page
+                  Pendaftaran
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -41,7 +41,25 @@
                 <li class="nav-item">
                   <router-link :to="{name: 'About'}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>About</p>
+                    <p>Pendaftaran Baru</p>
+                  </router-link>
+                </li>
+                 <li class="nav-item">
+                  <router-link :to="{name: 'About'}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pendaftaran</p>
+                  </router-link>
+                </li>
+                 <li class="nav-item">
+                  <router-link :to="{name: 'About'}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Pembayaran</p>
+                  </router-link>
+                </li>
+                 <li class="nav-item">
+                  <router-link :to="{name: 'About'}" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Data Anggota</p>
                   </router-link>
                 </li>
               </ul>
