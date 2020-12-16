@@ -1121,6 +1121,8 @@
   var SELECTOR_DATA_TOGGLE_SCROLL_LEFT = '[data-widget="iframe-scrollleft"]';
   var SELECTOR_DATA_TOGGLE_SCROLL_RIGHT = '[data-widget="iframe-scrollright"]';
   var SELECTOR_DATA_TOGGLE_FULLSCREEN = '[data-widget="iframe-fullscreen"]';
+  var SELECTOR_NAVTABS = '[data-widget="navtabs"]';
+  var DUPLICATE_CONTENT='[isContent=true]'
   var SELECTOR_CONTENT_WRAPPER = '.content-wrapper';
   var SELECTOR_CONTENT_IFRAME = SELECTOR_CONTENT_WRAPPER + " iframe";
   var SELECTOR_TAB_NAV = SELECTOR_DATA_TOGGLE$3 + ".iframe-mode .nav";
@@ -1161,6 +1163,7 @@
 
   var IFrame = /*#__PURE__*/function () {
     function IFrame(element, config) {
+       
       this._config = config;
       this._element = element;
 
@@ -1190,6 +1193,7 @@
       var newNavItem = "<li class=\"nav-item\" role=\"presentation\"><a class=\"nav-link\" data-toggle=\"row\" id=\"" + navId + "\" href=\"#" + tabId + "\" role=\"tab\" aria-controls=\"" + tabId + "\" aria-selected=\"false\">" + title + "</a></li>";
       $__default['default'](SELECTOR_TAB_NAVBAR_NAV).append(newNavItem);
       var newTabItem = "<div class=\"tab-pane fade\" id=\"" + tabId + "\" role=\"tabpanel\" aria-labelledby=\"" + navId + "\"><iframe src=\"" + link + "\"></iframe></div>";
+      $__default['default'](DUPLICATE_CONTENT).remove();
       $__default['default'](SELECTOR_TAB_CONTENT).append(newTabItem);
 
       if (autoOpen) {
@@ -1279,6 +1283,7 @@
     _proto.toggleFullscreen = function toggleFullscreen() {
       if ($__default['default']('body').hasClass(CLASS_NAME_FULLSCREEN_MODE)) {
         $__default['default'](SELECTOR_DATA_TOGGLE_FULLSCREEN + " i").removeClass(this._config.iconMinimize).addClass(this._config.iconMaximize);
+      
         $__default['default']('body').removeClass(CLASS_NAME_FULLSCREEN_MODE);
         $__default['default'](SELECTOR_TAB_EMPTY + ", " + SELECTOR_TAB_LOADING).height('auto');
         $__default['default'](SELECTOR_CONTENT_WRAPPER).height('auto');
@@ -1295,11 +1300,14 @@
     ;
 
     _proto._init = function _init() {
+       
       if (window.frameElement && this._config.autoIframeMode) {
         $__default['default']('body').addClass(CLASS_NAME_IFRAME_MODE);
+        $__default['default'](SELECTOR_NAVTABS).remove();
+      
       } else if ($__default['default'](SELECTOR_CONTENT_WRAPPER).hasClass(CLASS_NAME_IFRAME_MODE)) {
         this._setupListeners();
-
+       
         this._fixHeight(true);
       }
     };
@@ -1396,6 +1404,7 @@
     };
 
     _proto._setItemActive = function _setItemActive(href) {
+       
       $__default['default'](SELECTOR_SIDEBAR_MENU_ITEM + ", " + SELECTOR_HEADER_DROPDOWN_ITEM).removeClass('active');
       $__default['default'](SELECTOR_HEADER_MENU_ITEM).parent().removeClass('active');
       var $headerMenuItem = $__default['default'](SELECTOR_HEADER_MENU_ITEM + "[href$=\"" + href + "\"]");
@@ -1533,7 +1542,7 @@
 
 
     var _proto = Layout.prototype;
-
+    
     _proto.fixLayoutHeight = function fixLayoutHeight(extra) {
       if (extra === void 0) {
         extra = null;
@@ -1553,7 +1562,7 @@
         sidebar: $__default['default'](SELECTOR_SIDEBAR).length !== 0 ? $__default['default'](SELECTOR_SIDEBAR).height() : 0,
         controlSidebar: controlSidebar
       };
-
+     
       var max = this._max(heights);
 
       var offset = this._config.panelAutoHeight;
@@ -1616,6 +1625,7 @@
     ;
 
     _proto._init = function _init() {
+       
       var _this = this;
 
       // Activate layout height watcher

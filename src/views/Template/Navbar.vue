@@ -7,10 +7,10 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <router-link class="nav-link" to="/">Home</router-link>
+          <router-link class="nav-link" :to="{name:'Home',params:{isContent:true}}">Home</router-link>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <router-link class="nav-link" :to="{name:'About'}">About</router-link>
+          <router-link class="nav-link" :to="{name:'About',params:{isContent:true}}">About</router-link>
         </li>
       </ul>
 

@@ -1,5 +1,5 @@
 import {createRouter,createWebHistory} from 'vue-router'
-import Home from '../views/Test/Home.vue'
+import IFrame from '../views/Template/IFrame.vue'
 import About from '../views/Test/About.vue'
 import Jobs from '../views/Test/jobs/Jobs.vue'
 import JobDetails from '../views/Test/jobs/JobDetails.vue'
@@ -9,7 +9,7 @@ const routes=[
     {
         path:'/',
         name:'Home',
-        component:Home
+        component:IFrame
     },
     {
         path:'/about',

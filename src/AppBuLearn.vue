@@ -40,7 +40,11 @@
   <h1>LEARN 3- Form & Input</h1>
   <SignupForm/>
 </template>
-
+<template id="comp1">
+  <div>
+    <span>This is component 1</span>
+  </div>
+</template>
 <script>
 import Modal from './components/Test/Modal.vue'
 import Block from './components/Test/Block.vue'

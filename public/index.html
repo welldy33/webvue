@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>assets/plugins/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>assets/css/adminlte.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>assets/plugins/ overlayScrollbars/css/OverlayScrollbars.min.css">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
-  <body class="hold-transition sidebar-mini">
+  <body class="hold-transition sidebar-mini" data-panel-auto-height-mode="height">
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
@@ -19,7 +20,8 @@
     
     <script src="<%= BASE_URL %>assets/plugins/jquery/jquery.min.js"></script>
     <script src="<%= BASE_URL %>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<%= BASE_URL %>assets/js/adminlte.min.js"></script>
+    <script src="<%= BASE_URL %>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js"></script>
+    <script src="<%= BASE_URL %>assets/js/adminlte.js"></script>
     <script src="<%= BASE_URL %>assets/js/demo.js"></script>
   </body>
 </html>
