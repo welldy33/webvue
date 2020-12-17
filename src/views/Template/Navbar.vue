@@ -12,6 +12,9 @@
         <li class="nav-item d-none d-sm-inline-block">
           <router-link class="nav-link" :to="{name:'About',params:{isContent:true}}">About</router-link>
         </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <router-link class="nav-link" :to="{name:'Weather',params:{isContent:true}}">Wather</router-link>
+        </li>
       </ul>
 
       <!-- SEARCH FORM -->

@@ -1,4 +1,5 @@
 <template>
+
     <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750" >
          <Tabwin :SD="$route.params.isContent"/>
          <div class="tab-content">
