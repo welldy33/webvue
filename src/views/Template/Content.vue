@@ -5,6 +5,7 @@
          <div class="tab-content">
             <slot v-once name="links"></slot>
          </div>
+         <div class="test right">asdas</div>
       </div>
 </template>
 <script>
@@ -26,3 +27,14 @@ export default {
   }
 }
 </script>
+<style>
+.test{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    top: 0;
+    position: fixed;
+}
+
+
+</style>

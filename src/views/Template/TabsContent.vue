@@ -1,4 +1,5 @@
 <template>
+
 <div :isContent="$route.params.isContent">
 <br>
    <div class="container-fluid ">

@@ -1,6 +1,6 @@
 <template >
-        <h1>{{FirstName}}</h1>
-        <table class="table table-bordered  table-striped table-hover">
+        <button class="btn btn-primary" @click="showModal"><i class="fas fa-plus"></i> Add Patient</button>
+        <!-- <table class="table table-bordered  table-striped table-hover">
             <thead>
                 <tr>
                     <th>Date</th>
@@ -17,8 +17,10 @@
                     <td>{{dt.summary}}</td>
                 </tr>
             </tbody>
-        </table>
-        <br>
+        </table> -->
+        
+        <hr>
+      
         <table class="table table-bordered  table-striped table-hover">
             <thead>
                 <tr>
@@ -44,9 +46,9 @@
 </template>
 <script>
 import axios from 'axios'
-axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
+
 export default {
+    components:{},
     data(){
         return{
             tdata:[ 
@@ -58,20 +60,26 @@ export default {
                 }
             ],
             tData2:[],
-            FirstName:""
+            FirstName:"",
+            modalOn:false
         }
     },
     mounted(){
-        axios.get('https://localhost:44322/weatherforecast').then((response) => {
-            console.log(response);
-            this.tdata=response.data;
-        })
-        axios.get('https://localhost:44322/patient').then((response) => {
+        // axios.get('https://localhost:44322/weatherforecast').then((response) => {
+        //     console.log(response);
+        //     this.tdata=response.data;
+        // })
+        axios.put('https://localhost:44322/patient/QueryFile',{gen:"M"}).then((response) => {
             console.log(response);
             this.tData2=response.data;
             console.log(this.tData2[0].id);
             this.FirstName=this.tData2[0].id;
         })
+    },
+    methods:{
+        showModal(){
+            this.modalOn=true;
+        }
     }
 }
 </script>

@@ -13,9 +13,7 @@
           </template>
      
     </Content>
-     
     <Footer/>
-    
 </template>
 
 <script>

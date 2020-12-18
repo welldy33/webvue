@@ -1,6 +1,6 @@
 <template>
    <div id="sidebar">
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <aside class="main-sidebar sidebar-dark-primary elevation-4" >
       <!-- Brand Logo -->
       <router-link :to="{name: 'Home'}" class="brand-link">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
@@ -70,5 +70,6 @@
       </div>
       <!-- /.sidebar -->
     </aside>
+    
   </div>
 </template>

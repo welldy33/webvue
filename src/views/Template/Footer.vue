@@ -6,10 +6,24 @@
       <div class="float-right d-none d-sm-inline-block">
         <b>Version</b> 3.0.5
       </div>
+     
     </footer>
+     <div class="test right">asdas</div>
   </div>
+    
 </template>
  
 <script>
 export default {}
 </script>
+<style>
+.test{
+    width: 100%;
+    height: 100%;
+    background: aquamarine;
+    top: 0;
+    position: fixed;
+}
+
+
+</style>
