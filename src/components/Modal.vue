@@ -1,18 +1,27 @@
 <template>
-    <div class="backdrop">
-        <div class="card modalself">
-            <div class="card-header">
-                <h1>{{title}}</h1>
-            </div>
-            <div class="card-body">
-              <h1>Content</h1>
-           </div>
+   <div class="modal fade" :id="idm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+                <slot name="h-modal"></slot>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <slot name="b-modal"></slot>
+          </div>
+          <div class="modal-footer">
+            <slot name="f-modal"></slot>
+          </div>
         </div>
+      </div>
     </div>
 </template>
 <script>
 export default {
-    props:['title'],
+    name: 'modalComp', 
+    props:['title','idm'],
     data() {
         return { 
               
@@ -23,22 +32,6 @@ export default {
 }
 </script>
 <style>
-.modalself{
-    display: inline-block;
-    min-width: 700px;
-    max-width: 70%;
-    position: relative;
-    margin-top: 20px;
-    text-align: left;
-}
-.backdrop{
-     top:0;
-     position: absolute;
-     text-align: center;
-     background: rgba(0,0,0,0.5);
-     width: 100%;
-     height: 100%;
-     left: 0;
-}
+
 
 </style>

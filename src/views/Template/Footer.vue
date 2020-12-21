@@ -8,7 +8,7 @@
       </div>
      
     </footer>
-     <div class="test right">asdas</div>
+     
   </div>
     
 </template>

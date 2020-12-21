@@ -1,12 +1,11 @@
 <template>
-
+    
     <div class="content-wrapper iframe-mode" data-widget="iframe" data-loading-screen="750" >
          <Tabwin :SD="$route.params.isContent"/>
          <div class="tab-content">
             <slot v-once name="links"></slot>
          </div>
-         <div class="test right">asdas</div>
-      </div>
+    </div>
 </template>
 <script>
 import Tabwin from './Tabwin.vue'

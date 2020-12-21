@@ -1,12 +1,13 @@
 <template>
+    
     <Navbar id="nav" ref="container"/> 
     <SideBar/>
-  
     <Content>
-    
+   
           <template v-slot:links>
               <TabsContent>
                 <template v-slot:content>
+                
                   <router-view ref="mycontent"/>
                 </template>
               </TabsContent>
