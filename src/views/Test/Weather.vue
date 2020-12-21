@@ -91,7 +91,10 @@ export default {
     },
     methods:{
         onSave(){
-           console.log(this.$refs.form.formdata.name);
+           axios.post('https://localhost:44322/patient',this.$refs.form.formdata).then((response) => {
+              console.log(response)
+           });
+           console.log(JSON.stringify(this.$refs.form.formdata));
         }
     }
 }

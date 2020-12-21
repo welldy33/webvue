@@ -16,7 +16,7 @@
             </div>
         </div>
         <label>Address</label>
-        <input type="text" v-model="formdata.address" class="form-control"/>
+        <input type="text" v-model="formdata.addr" class="form-control"/>
     </form>
 </template>
 <script>
@@ -29,7 +29,7 @@ export default {
                 gender:"",
                 birt_place:"",
                 birt_date:"",
-                address:""
+                addr:""
             }
         }
     }
