@@ -1,15 +1,14 @@
 <template>
     <button @click="onPublish" class="btn btn-primary float-right">Publish</button>
-    <button @click="onPublish2" class="btn btn-primary float-right">Publish2</button>
     <button @click="onSubs" class="btn btn-primary float-right">Subscribe</button>
-    <Navbar id="nav" ref="container"/> 
+    <Navbar id="nav" :tmsg="fields" ref="container"/> 
     <SideBar/>
     
     <Content>
    
           <template v-slot:links>
               <TabsContent>
-                <template v-slot:content>
+                <template  v-slot:content>
                 
                   <router-view ref="mycontent"/>
                 </template>
@@ -46,13 +45,17 @@ export default {
   },
   methods:{
     onSubs(){
-        this.subscribe();
+      this.subscribe('tmsg');
     },
-    onPublish(){
-      this.publish();
+    onPublish:async function(){
+      await this.publish('tmsg','Hallo, How Are You');
+     // console.log('after call: '+JSON.stringify(this.tmsg));
+    //  this.fields=this.tmsg?this.tmsg:[];
+     // console.log('fields:'+ JSON.stringify(this.fields)+'--'+this.fields.length);
     },
-    onPublish2(){
-      this.publish2();
+    onReceive(topic,msg){
+      this.fields.push(msg);
+
     },
     redirect(){
       this.$router.push({name:'Home'})

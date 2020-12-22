@@ -30,12 +30,26 @@
       </form>
 
       <!-- Right navbar links -->
-     
+      <ul class="navbar-nav ml-auto">
+        <!-- Messages Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-comments"></i>
+            <span class="badge badge-danger navbar-badge">{{tmsg.length}}</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+              <a href="#" v-for="msg in tmsg" :key="msg" class="dropdown-item">
+                <i class="fas fa-envelope mr-2"></i> {{msg}}
+                <span class="float-right text-muted text-sm">3 mins</span>
+              </a>
+          </div>
+        </li>
+      </ul>
     </nav>
   </div>
 </template>
 <script>
 export default {
-  
+  props:['tmsg']
 }
 </script>
