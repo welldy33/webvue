@@ -18,7 +18,9 @@
                 </tr>
             </tbody>
         </table> -->
-        
+        <button type="button" @click="testSwal" class="btn btn-default toastsDefaultDefault">
+                  Launch Default Toast
+                </button>
         <hr>
         <Modal :idm='modalId'>
             <template v-slot:h-modal>
@@ -60,8 +62,11 @@
 import axios from 'axios'
 import Modal from '../../components/Modal.vue'
 import IUForm from './Weather/IUForm.vue'
+import Srv from '../../_service/Srv.vue'
+var $=window;
 export default {
     components:{Modal,IUForm},
+    mixins:[Srv],
     data(){
         return{
             tdata:[ 
@@ -77,17 +82,23 @@ export default {
             modalOn:false
         }
     },
-    mounted(){
+    mounted :async function(){
         // axios.get('https://localhost:44322/weatherforecast').then((response) => {
         //     console.log(response);
         //     this.tdata=response.data;
         // })
-        axios.put('https://localhost:44322/patient/QueryFile',{gen:"M"}).then((response) => {
-            console.log(response);
-            this.tData2=response.data;
-            console.log(this.tData2[0].id);
-            this.FirstName=this.tData2[0].id;
-        })
+        this.tData2=await this.get('https://localhost:44322/patient/QueryFile',{gen:"M"});
+        console.log(this.tData2);
+        console.log("After Failed Service")
+        // axios.put('https://localhost:44322/patient/QueryFile',{gen:"M"}).then((response) => {
+        //     console.log(response);
+        //     this.tData2=response.data;
+        //     console.log(this.tData2[0].id);
+        //     this.FirstName=this.tData2[0].id;
+        // }).catch((err)=>{
+        //     console.log(err.response.data);
+        //     alert(JSON.stringify(err.response.data));
+        // })
     },
     methods:{
         onSave(){
@@ -95,6 +106,10 @@ export default {
               console.log(response)
            });
            console.log(JSON.stringify(this.$refs.form.formdata));
+        },
+        testSwal(){
+            console.log(window);
+            $.toastr.info('[');
         }
     }
 }

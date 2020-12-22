@@ -7,8 +7,9 @@
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>assets/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>assets/plugins/toastr/toastr.min.css">
     <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>assets/css/adminlte.min.css">
-    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>assets/plugins/ overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body class="hold-transition sidebar-mini" data-panel-auto-height-mode="height">
@@ -20,11 +21,24 @@
     <!-- Modal -->
     <div id="app" class="wrapper"></div>
     <!-- built files will be auto injected -->
-    
+
     <script src="<%= BASE_URL %>assets/plugins/jquery/jquery.min.js"></script>
+
     <script src="<%= BASE_URL %>assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<%= BASE_URL %>assets/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="<%= BASE_URL %>assets/plugins/toastr/toastr.min.js"></script>
     <script src="<%= BASE_URL %>assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js"></script>
     <script src="<%= BASE_URL %>assets/js/adminlte.js"></script>
     <script src="<%= BASE_URL %>assets/js/demo.js"></script>
+    <script>
+       $(function() {
+          var Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          });
+       });
+    </script>
   </body>
 </html>
